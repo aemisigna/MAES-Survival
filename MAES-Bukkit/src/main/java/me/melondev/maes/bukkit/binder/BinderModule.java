@@ -20,8 +20,10 @@ public final class BinderModule extends AbstractModule {
     private List<Module> moduleList;
 
     public BinderModule(@NotNull final MAESBukkit maesBukkit, final Module... modules) {
-        moduleList = new ArrayList<Module>();
+        moduleList = new ArrayList<>();
         moduleList.addAll(Arrays.asList(modules));
+
+        this.maesBukkit = maesBukkit;
     }
 
     public Injector createInjector() {

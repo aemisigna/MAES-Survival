@@ -2,12 +2,13 @@ package me.melondev.maes.bukkit;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-
 import com.google.inject.Module;
+
 import me.melondev.maes.api.APIModule;
 import me.melondev.maes.bukkit.binder.BinderModule;
-
 import me.melondev.maes.bukkit.listener.PlayerJoinListener;
+import me.melondev.maes.bukkit.listener.PlayerQuitListener;
+
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -17,11 +18,14 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public final class MAESBukkit extends JavaPlugin {
     @Inject private PlayerJoinListener playerJoinListener;
+    @Inject private PlayerQuitListener playerQuitListener;
 
     @Override
     public void onEnable() {
         this.setupGuice(new APIModule());
-        this.registerListeners(playerJoinListener);
+        this.registerListeners(playerJoinListener, playerQuitListener);
+
+        this.saveDefaultConfig();
     }
 
     private void setupGuice(final Module... modules) {
