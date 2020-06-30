@@ -16,6 +16,6 @@ public final class PlayerQuitListener implements Listener {
     public void onQuit(final PlayerQuitEvent event) {
         final Player player = event.getPlayer();
 
-        event.setQuitMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c" : "&7") + player.getName() + " &eha entrado al servidor."));
+        event.setQuitMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c[H] " : "&7") + player.getName() + " &eha salido del servidor."));
     }
 }
