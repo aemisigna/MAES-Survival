@@ -16,11 +16,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public final class PlayerJoinListener implements Listener {
     @Inject private MAESBukkit maesBukkit;
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(final PlayerJoinEvent event) {
         final Player player = event.getPlayer();
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', maesBukkit.getConfig().getString("maes.motd")));
+        player.sendMessage(ChatColor.translateAlternateColorCodes('&', maesBukkit.getConfig().getString("maes.motd").replace("%player%", player.getName())));
 
-        event.setJoinMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c" : "&7") + player.getName() + " ha entrado al servidor."));
+        event.setJoinMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c" : "&7") + player.getName() + " &eha entrado al servidor."));
     }
 }

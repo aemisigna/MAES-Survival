@@ -12,10 +12,10 @@ import org.bukkit.event.player.PlayerQuitEvent;
  * @since 1.0.0
  */
 public final class PlayerQuitListener implements Listener {
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onQuit(final PlayerQuitEvent event) {
         final Player player = event.getPlayer();
 
-        event.setQuitMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c" : "&7") + player.getName() + " ha entrado al servidor."));
+        event.setQuitMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c" : "&7") + player.getName() + " &eha entrado al servidor."));
     }
 }
