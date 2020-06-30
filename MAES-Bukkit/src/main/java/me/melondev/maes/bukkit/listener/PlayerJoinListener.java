@@ -21,6 +21,6 @@ public final class PlayerJoinListener implements Listener {
         final Player player = event.getPlayer();
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', maesBukkit.getConfig().getString("maes.motd").replace("%player%", player.getName())));
 
-        event.setJoinMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c" : "&7") + player.getName() + " &eha entrado al servidor."));
+        event.setJoinMessage(ChatColor.translateAlternateColorCodes('&', (player.isOp() ? "&c[H] " : "&7") + player.getName() + " &eha entrado al servidor."));
     }
 }
