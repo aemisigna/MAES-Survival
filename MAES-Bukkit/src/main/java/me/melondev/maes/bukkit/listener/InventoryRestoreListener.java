@@ -24,7 +24,7 @@ public final class InventoryRestoreListener implements Listener {
     public void onDeath(final PlayerDeathEvent event) {
         Player player = event.getEntity();
         PlayerInventory playerInventory = player.getInventory();
-        MAESInventory maesInventory = new MAESInventory(playerInventory.getContents(), playerInventory.getArmorContents(), playerInventory.getItemInOffHand(), player.getLevel(), player.getExp(), player.getLocation());
+        MAESInventory maesInventory = new MAESInventory(playerInventory.getStorageContents(), playerInventory.getArmorContents(), playerInventory.getItemInOffHand(), player.getLevel(), player.getExp(), player.getLocation());
 
         inventoryRegistry.cache(player.getName(), maesInventory);
 

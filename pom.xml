@@ -7,7 +7,7 @@
     <groupId>me.melondev</groupId>
     <artifactId>MAES-Core</artifactId>
     <packaging>pom</packaging>
-    <version>0.2.0-DEVELOPMENT</version>
+    <version>0.2.1-DEVELOPMENT</version>
     <modules>
         <module>MAES-Bukkit</module>
         <module>MAES-API</module>

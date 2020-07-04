@@ -53,17 +53,16 @@ public class InventoryManager implements InventoryRegistry {
                 currencyWithdrawer.withdraw(player.getInventory(), RESTORE_MATERIAL, RESTORE_PRICE);
                 MAESInventory maesInventory = cachedInventoryMap.get(name);
                 Inventory restoredInventory = Bukkit.createInventory(null, 54, "Último inventario guardado:");
-                List<ItemStack> chestContents = new ArrayList<>();
+
                 for (ItemStack itemStack : maesInventory.getArmorItems()) {
-                    if (itemStack != null) chestContents.add(itemStack);
+                    if (itemStack != null) restoredInventory.addItem(itemStack);
                 }
                 for (ItemStack itemStack : maesInventory.getInventoryItems()) {
-                    if (itemStack != null) chestContents.add(itemStack);
+                    if (itemStack != null) restoredInventory.addItem(itemStack);
                 }
                 if (maesInventory.getOffHandItem() != null) {
-                    if (maesInventory.getOffHandItem().getType() != Material.AIR) chestContents.add(maesInventory.getOffHandItem());
+                    if (maesInventory.getOffHandItem().getType() != Material.AIR) restoredInventory.addItem(maesInventory.getOffHandItem());
                 }
-                chestContents.forEach(restoredInventory::addItem);
 
                 player.setLevel(maesInventory.getLevel());
                 player.setExp(maesInventory.getExperience());

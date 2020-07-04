@@ -5,7 +5,7 @@
     <parent>
         <artifactId>MAES-Core</artifactId>
         <groupId>me.melondev</groupId>
-        <version>1.0.0-DEVELOPMENT</version>
+        <version>0.2.1-DEVELOPMENT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>MAES-Bukkit</artifactId>
