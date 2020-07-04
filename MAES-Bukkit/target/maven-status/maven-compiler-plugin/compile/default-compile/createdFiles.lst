@@ -1,3 +1,14 @@
-me\melondev\maes\bukkit\MAESBukkit.class
 me\melondev\maes\bukkit\listener\PlayerJoinListener.class
+me\melondev\maes\bukkit\inventoryrestorer\restorer\InventoryManager$1.class
+me\melondev\maes\bukkit\inventoryrestorer\restorer\response\RestoreResponse.class
+me\melondev\maes\bukkit\inventoryrestorer\inventory\MAESInventory.class
+me\melondev\maes\bukkit\listener\PlayerQuitListener.class
 me\melondev\maes\bukkit\binder\BinderModule.class
+me\melondev\maes\bukkit\inventoryrestorer\InventoryRestoreModule.class
+me\melondev\maes\bukkit\inventoryrestorer\registry\InventoryRegistry.class
+me\melondev\maes\bukkit\MAESBukkit.class
+me\melondev\maes\bukkit\inventoryrestorer\restorer\InventoryManager.class
+me\melondev\maes\bukkit\inventoryrestorer\command\RestoreInventoryCommand.class
+me\melondev\maes\bukkit\inventoryrestorer\restorer\CurrencyWithdrawer.class
+me\melondev\maes\bukkit\inventoryrestorer\grabber\ItemGrabber.class
+me\melondev\maes\bukkit\listener\InventoryRestoreListener.class

@@ -1,4 +1,6 @@
 name: MAESCore-Bukkit
-version: ${project.version}-${git.commit.id.abbrev}
+version: 1.0.0-DEVELOPMENT-8bc2588
 author: MelonDev
 main: me.melondev.maes.bukkit.MAESBukkit
+commands:
+   inventory-restore:
