@@ -1,8 +1,8 @@
 package me.melondev.maes.bukkit.inventoryrestorer.restorer;
 
 import com.google.common.base.Preconditions;
-
 import com.google.inject.Inject;
+
 import me.melondev.maes.bukkit.inventoryrestorer.inventory.MAESInventory;
 import me.melondev.maes.bukkit.inventoryrestorer.registry.InventoryRegistry;
 import me.melondev.maes.bukkit.inventoryrestorer.restorer.response.RestoreResponse;
@@ -12,8 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -78,6 +76,21 @@ public class InventoryManager implements InventoryRegistry {
     }
 
     /**
+     * Cache a player inventory.
+     * @param name a non null player name
+     * @param maesInventory a data-filled {@link MAESInventory}
+     */
+    @Override
+    public void cache(String name, MAESInventory maesInventory) {
+        if (cachedInventoryMap.containsKey(name)) {
+            spawnItems(name);
+        }
+        cachedInventoryMap.remove(name); // remove old inventory
+        cachedInventoryMap.put(name, maesInventory);
+        System.out.println("[MAES-Bukkit] Cached inventory (" + name + "): " + cachedInventoryMap.get(name));
+    }
+
+    /**
      * Clear a cached inventory.
      * @param name the {@link Player} name.
      */
@@ -114,18 +127,6 @@ public class InventoryManager implements InventoryRegistry {
         player.playSound(player.getLocation(), Sound.ENTITY_ZOMBIE_VILLAGER_HURT,  0.6F, 0.6F);
         System.out.println("[MAES-Bukkit] Dropped items for " + name);
         clear(name);
-    }
-
-    /**
-     * Cache a player inventory.
-     * @param name a non null player name
-     * @param maesInventory a data-filled {@link MAESInventory}
-     */
-    @Override
-    public void cache(String name, MAESInventory maesInventory) {
-        cachedInventoryMap.remove(name); // remove old inventory
-        cachedInventoryMap.put(name, maesInventory);
-        System.out.println("[MAES-Bukkit] Cached inventory (" + name + "): " + cachedInventoryMap.get(name));
     }
 
     /**

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>MAES-Core</artifactId>
         <groupId>me.melondev</groupId>
-        <version>0.2.1-DEVELOPMENT</version>
+        <version>0.2.2-DEVELOPMENT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>MAES-Bukkit</artifactId>
@@ -58,6 +58,12 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <!-- Don't create the reduced pom file, as we don't deploy the shaded jar -->
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <!-- Deploy the non shaded jar as main artifact -->
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <!-- Use the base jar name, to help server owners download the right jar -->
+                            <finalName>${project.build.finalName}</finalName>
                             <filters>
                                 <filter>
                                     <excludes>

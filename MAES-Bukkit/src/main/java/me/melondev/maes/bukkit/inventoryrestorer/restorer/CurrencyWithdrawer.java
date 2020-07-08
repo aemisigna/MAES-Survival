@@ -20,6 +20,6 @@ public class CurrencyWithdrawer implements ItemGrabber {
      */
     @Override
     public void withdraw(Inventory inventory, Material material, int amount) {
-        inventory.remove(new ItemStack(material, amount));
+        inventory.removeItem(new ItemStack(material, amount));
     }
 }

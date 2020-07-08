@@ -20,8 +20,11 @@ public final class RestoreInventoryCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (!(commandSender instanceof Player)) return true;
-        if (args.length == 0) return true;
         Player player = Preconditions.checkNotNull(((Player) commandSender).getPlayer(), "CommandSender null..?");
+        if (args.length == 0) {
+            player.sendMessage("§cUso: /inventory-restore <restore/giveup>");
+            return true;
+        }
         if (args[0].equalsIgnoreCase("giveup")) {
             inventoryRegistry.spawnItems(player.getName());
             return true;
