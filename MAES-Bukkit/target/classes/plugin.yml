@@ -1,6 +1,0 @@
-name: MAESCore-Bukkit
-version: 1.0.0-DEVELOPMENT-8bc2588
-author: MelonDev
-main: me.melondev.maes.bukkit.MAESBukkit
-commands:
-   inventory-restore:
